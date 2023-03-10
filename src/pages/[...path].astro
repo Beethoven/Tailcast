@@ -1,4 +1,5 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import BlogPost from "../layouts/BlogPost.astro";
 const { path } = Astro.params;
 if (!path) return Astro.redirect("/teste");
@@ -8,4 +9,6 @@ const data = await response.json();
 if (!data) return Astro.redirect("/404");
 ---
 
-<BlogPost title={data.title} content={data.content} hero={data.hero} />
+<Layout title="Tailcast">
+  <BlogPost title={data.title} content={data.content} hero={data.hero} />
+</Layout>
