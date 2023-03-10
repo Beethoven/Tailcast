@@ -5,9 +5,28 @@ interface Props {
   height: string;
   alt: string;
 }
+const imageDomain = "https://imagedelivery.net/";
 const AccountHash = "NKba0sp2DdQueeIrTYy1AA";
+const imageUrl = imageDomain + AccountHash + "/";
 const { src, ...props } = Astro.props;
-let cloudSrc = `https://imagedelivery.net/${AccountHash}/${src}/width=${width},format=auto`;
+const sizes =
+  "(max-width: 360px) 100vw, (max-width: 720px) 50vw, (max-width: 1024px) 33vw, 360px";
+
+const getImage = (width: number) => {
+  return `${imageUrl}/${src}/width=${width},format=auto`;
+};
+
+const srcset = `${getImage(360)} 360w, ${getImage(720)} 720w, ${getImage(
+  1080
+)} 1080w, ${getImage(1440)} 1440w, ${getImage(2160)} 2160w`;
+const cloudSrc = getImage(1080);
 ---
 
-<img src={cloudSrc} loading="lazy" {...props} />
+<img
+  src={cloudSrc}
+  srcset={srcset}
+  decoding="async"
+  loading="lazy"
+  {...props}
+  style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"
+/>

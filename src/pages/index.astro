@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Img from "../components/Img.astro";
 import { Hero } from "../components/Hero.jsx";
 import { Navbar } from "../components/Navbar.jsx";
 import { Features1 } from "../components/Features1.jsx";
@@ -20,6 +21,7 @@ import { ScrollUpButton } from "../components/ScrollUpButton";
 
 <Layout title="Tailcast">
   <Navbar client:load />
+  <Img alt="teste" src="c8c269f6-3e76-4247-bc3b-aa1bbeec4d00" />
   <Hero client:load />
   <Features1 client:load />
   <Divider />
