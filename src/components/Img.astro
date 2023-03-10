@@ -1,0 +1,13 @@
+---
+interface Props {
+  src: string;
+  width: string;
+  height: string;
+  alt: string;
+}
+const AccountHash = "NKba0sp2DdQueeIrTYy1AA";
+const { src, ...props } = Astro.props;
+let cloudSrc = `https://imagedelivery.net/${AccountHash}/${src}/width=${width},format=auto`;
+---
+
+<img src={cloudSrc} loading="lazy" {...props} />

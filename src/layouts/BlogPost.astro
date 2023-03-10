@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string;
+  content: string;
+  hero: string;
+}
+const { title, hero, content } = Astro.props;
+---
+
+<article class="max-w-5xl mx-auto px-3">
+  <header class="mx-auto max-w-3xl text-center">
+    <h1 class="text-6xl">{title}</h1>
+  </header>
+
+  <!-- Image -->
+  {
+    hero && (
+      <img
+        class="rounded-xl mx-auto"
+        style="min-width: 80%;"
+        loading="lazy"
+        src={hero}
+        alt={title}
+      />
+    )
+  }
+
+  <!-- Content -->
+  <section class="max-w-3xl mx-auto py-6 lg:py-12">
+    {content}
+  </section>
+</article>

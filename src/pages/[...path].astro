@@ -1,0 +1,11 @@
+---
+import BlogPost from "../layouts/BlogPost.astro";
+const { path } = Astro.params;
+if (!path) return Astro.redirect("/teste");
+const contentUrl = `https://landtapp.firebaseio.com/${path}.json`;
+const response = await fetch(contentUrl);
+const data = await response.json();
+if (!data) return Astro.redirect("/404");
+---
+
+<BlogPost title={data.title} content={data.content} hero={data.hero} />

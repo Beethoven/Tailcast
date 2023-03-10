@@ -14,4 +14,25 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.hero-gradient {
+  --a: 0deg;
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  bottom: 18%;
+  left: 5%;
+  filter: blur(150px);
+  border-radius: 50%;
+  background: linear-gradient(var(--a), #e52c96 0, #473ff4 100%);
+  animation: gradientSpin 10s linear infinite;
+}
 
+@keyframes gradientSpin {
+  0% {
+    --a: 0deg
+  }
+
+  to {
+    --a: 360deg
+  }
+}
