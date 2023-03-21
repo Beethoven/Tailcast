@@ -21,8 +21,17 @@ import { ScrollUpButton } from "../components/ScrollUpButton";
 
 <Layout title="Tailcast">
   <Navbar client:load />
-  <Img alt="teste" src="c8c269f6-3e76-4247-bc3b-aa1bbeec4d00" />
+
   <Hero client:load />
+  <div class="relative w-full max-h-[640px] md:min-h-[1080px]">
+    <Img
+      alt="teste"
+      src="c8c269f6-3e76-4247-bc3b-aa1bbeec4d00"
+      height="1024"
+      width="768"
+    />
+  </div>
+
   <Features1 client:load />
   <Divider />
   <Features2 client:load />
